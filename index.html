@@ -1,0 +1,16 @@
+<script>
+  let startX = 0;
+  let endX = 0;
+  document.addEventListener('touchstart', e => {
+    startX = e.changedTouches[0].screenX;
+  });
+  document.addEventListener('touchend', e => {
+    endX = e.changedTouches[0].screenX;
+    if (startX - endX > 50) {
+      window.location.href = document.body.dataset.next;
+    } else if (endX - startX > 50) {
+      window.location.href = document.body.dataset.prev;
+    }
+  });
+  </script>
+  
